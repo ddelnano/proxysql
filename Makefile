@@ -163,7 +163,7 @@ binaries/proxysql-${CURVER}-1-centos5.x86_64.rpm:
 	docker rm centos5_build || true
 	docker create --name centos5_build renecannao/proxysql:build-centos5 bash -c "while : ; do sleep 10 ; done"
 	docker start centos5_build
-	docker exec centos5_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos5_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	docker exec centos5_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	docker exec -it centos5_build bash -c "cd /opt/proxysql ; mkdir -p proxysql/usr/bin; mkdir -p proxysql/etc; cp src/proxysql proxysql/usr/bin/; cp -a etc proxysql ; mkdir -p proxysql/usr/share/proxysql/tools ; cp -a tools/proxysql_galera_checker.sh tools/proxysql_galera_writer.pl proxysql/usr/share/proxysql/tools ; mv proxysql proxysql-${CURVER} ; tar czvf proxysql-${CURVER}.tar.gz proxysql-${CURVER}"
 	docker exec -it centos5_build bash -c "mkdir -p /root/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}"
@@ -187,7 +187,7 @@ binaries/proxysql-${CURVER}-1-dbg-centos5.x86_64.rpm:
 	docker rm centos5_build || true
 	docker create --name centos5_build renecannao/proxysql:build-centos5 bash -c "while : ; do sleep 10 ; done"
 	docker start centos5_build
-	docker exec centos5_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos5_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec centos5_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -214,7 +214,7 @@ binaries/proxysql-${CURVER}-1-centos67.x86_64.rpm:
 	docker rm centos67_build || true
 	docker create --name centos67_build renecannao/proxysql:build-centos6.7 bash -c "while : ; do sleep 10 ; done"
 	docker start centos67_build
-	docker exec centos67_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos67_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	docker exec centos67_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	docker exec -it centos67_build bash -c "cd /opt/proxysql ; mkdir -p proxysql/usr/bin; mkdir -p proxysql/etc; cp src/proxysql proxysql/usr/bin/; cp -a etc proxysql ; mkdir -p proxysql/usr/share/proxysql/tools ; cp -a tools/proxysql_galera_checker.sh tools/proxysql_galera_writer.pl proxysql/usr/share/proxysql/tools ; mv proxysql proxysql-${CURVER} ; tar czvf proxysql-${CURVER}.tar.gz proxysql-${CURVER}"
 	docker exec -it centos67_build bash -c "mkdir -p /root/rpmbuild/{RPMS,SRPMS,BUILD,SOURCES,SPECS,tmp}"
@@ -236,7 +236,7 @@ binaries/proxysql-${CURVER}-1-dbg-centos67.x86_64.rpm:
 	docker rm centos67_build || true
 	docker create --name centos67_build renecannao/proxysql:build-centos6.7 bash -c "while : ; do sleep 10 ; done"
 	docker start centos67_build
-	docker exec centos67_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos67_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec centos67_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -263,7 +263,7 @@ binaries/proxysql-${CURVER}-1-centos7.x86_64.rpm:
 	docker rm centos7_build || true
 	docker create --name centos7_build renecannao/proxysql:build-centos7 bash -c "while : ; do sleep 10 ; done"
 	docker start centos7_build
-	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec centos7_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -290,7 +290,7 @@ binaries/proxysql-${CURVER}-clickhouse-1-centos7.x86_64.rpm:
 	docker rm centos7_build || true
 	docker create --name centos7_build renecannao/proxysql:build-centos7 bash -c "while : ; do sleep 10 ; done"
 	docker start centos7_build
-	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec centos7_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps_clickhouse && ${MAKE} clickhouse ${MAKEOPT}"
 	sleep 2
@@ -317,7 +317,7 @@ binaries/proxysql-${CURVER}-1-dbg-centos7.x86_64.rpm:
 	docker rm centos7_build || true
 	docker create --name centos7_build renecannao/proxysql:build-centos7 bash -c "while : ; do sleep 10 ; done"
 	docker start centos7_build
-	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec centos7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec centos7_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -345,7 +345,7 @@ binaries/proxysql-${CURVER}-1-fedora24.x86_64.rpm:
 	docker rm fedora24_build || true
 	docker create --name fedora24_build renecannao/proxysql:build-fedora24 bash -c "while : ; do sleep 10 ; done"
 	docker start fedora24_build
-	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec fedora24_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -372,7 +372,7 @@ binaries/proxysql-${CURVER}-clickhouse-1-fedora24.x86_64.rpm:
 	docker rm fedora24_build || true
 	docker create --name fedora24_build renecannao/proxysql:build-fedora24 bash -c "while : ; do sleep 10 ; done"
 	docker start fedora24_build
-	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec fedora24_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps_clickhouse && ${MAKE} clickhouse ${MAKEOPT}"
 	sleep 2
@@ -399,7 +399,7 @@ binaries/proxysql-${CURVER}-1-dbg-fedora24.x86_64.rpm:
 	docker rm fedora24_build || true
 	docker create --name fedora24_build renecannao/proxysql:build-fedora24 bash -c "while : ; do sleep 10 ; done"
 	docker start fedora24_build
-	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec fedora24_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec fedora24_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -426,10 +426,10 @@ binaries/proxysql_${CURVER}-ubuntu12_amd64.deb:
 	docker rm ubuntu12_build || true
 	docker create --name ubuntu12_build renecannao/proxysql:build-ubuntu12 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu12_build
-	docker exec ubuntu12_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu12_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu12_build bash -c "cd /opt/proxysql; sed -i -e 's/c++11/c++0x/' lib/Makefile ; sed -i -e 's/c++11/c++0x/' src/Makefile"
-	docker exec ubuntu12_build bash -c "cd /opt/proxysql/deps/re2 ; rm re2.tar.gz ; wget -O re2.tar.gz https://github.com/sysown/proxysql/raw/v1.3.9/deps/re2/re2-20140304.tgz"
+	docker exec ubuntu12_build bash -c "cd /opt/proxysql/deps/re2 ; rm re2.tar.gz ; wget -O re2.tar.gz https://github.com/ddelnano/proxysql/raw/v1.3.9/deps/re2/re2-20140304.tgz"
 	docker exec ubuntu12_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
 	docker cp docker/images/proxysql/ubuntu-12.04-build/proxysql.ctl ubuntu12_build:/opt/proxysql/
@@ -445,7 +445,7 @@ binaries/proxysql_${CURVER}-ubuntu14_amd64.deb:
 	docker rm ubuntu14_build || true
 	docker create --name ubuntu14_build renecannao/proxysql:build-ubuntu14 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu14_build
-	docker exec ubuntu14_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu14_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu14_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -462,7 +462,7 @@ binaries/proxysql_${CURVER}-ubuntu16_amd64.deb:
 	docker rm ubuntu16_build || true
 	docker create --name ubuntu16_build renecannao/proxysql:build-ubuntu16 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu16_build
-	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu16_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -479,7 +479,7 @@ binaries/proxysql_${CURVER}-debian7_amd64.deb:
 	docker rm debian7_build || true
 	docker create --name debian7_build renecannao/proxysql:build-debian7 bash -c "while : ; do sleep 10 ; done"
 	docker start debian7_build
-	docker exec debian7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian7_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -496,7 +496,7 @@ binaries/proxysql_${CURVER}-debian8_amd64.deb:
 	docker rm debian8_build || true
 	docker create --name debian8_build renecannao/proxysql:build-debian8 bash -c "while : ; do sleep 10 ; done"
 	docker start debian8_build
-	docker exec debian8_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian8_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian8_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -513,7 +513,7 @@ binaries/proxysql_${CURVER}-debian9_amd64.deb:
 	docker rm debian9_build || true
 	docker create --name debian9_build renecannao/proxysql:build-debian9 bash -c "while : ; do sleep 10 ; done"
 	docker start debian9_build
-	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian9_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT}"
 	sleep 2
@@ -530,7 +530,7 @@ binaries/proxysql_${CURVER}-clickhouse-debian9_amd64.deb:
 	docker rm debian9_build || true
 	docker create --name debian9_build renecannao/proxysql:build-debian9 bash -c "while : ; do sleep 10 ; done"
 	docker start debian9_build
-	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian9_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps_clickhouse && ${MAKE} clickhouse ${MAKEOPT}"
 	sleep 2
@@ -547,7 +547,7 @@ binaries/proxysql_${CURVER}-dbg-ubuntu14_amd64.deb:
 	docker rm ubuntu14_build || true
 	docker create --name ubuntu14_build renecannao/proxysql:build-ubuntu14 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu14_build
-	docker exec ubuntu14_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu14_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu14_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -564,7 +564,7 @@ binaries/proxysql_${CURVER}-dbg-ubuntu16_amd64.deb:
 	docker rm ubuntu16_build || true
 	docker create --name ubuntu16_build renecannao/proxysql:build-ubuntu16 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu16_build
-	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu16_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -581,7 +581,7 @@ binaries/proxysql_${CURVER}-clickhouse-ubuntu16_amd64.deb:
 	docker rm ubuntu16_build || true
 	docker create --name ubuntu16_build renecannao/proxysql:build-ubuntu16 bash -c "while : ; do sleep 10 ; done"
 	docker start ubuntu16_build
-	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec ubuntu16_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec ubuntu16_build bash --login -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps_clickhouse && ${MAKE} clickhouse ${MAKEOPT}"
 	sleep 2
@@ -598,7 +598,7 @@ binaries/proxysql_${CURVER}-dbg-debian7_amd64.deb:
 	docker rm debian7_build || true
 	docker create --name debian7_build renecannao/proxysql:build-debian7 bash -c "while : ; do sleep 10 ; done"
 	docker start debian7_build
-	docker exec debian7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian7_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian7_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -615,7 +615,7 @@ binaries/proxysql_${CURVER}-dbg-debian8_amd64.deb:
 	docker rm debian8_build || true
 	docker create --name debian8_build renecannao/proxysql:build-debian8 bash -c "while : ; do sleep 10 ; done"
 	docker start debian8_build
-	docker exec debian8_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian8_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian8_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
@@ -632,7 +632,7 @@ binaries/proxysql_${CURVER}-dbg-debian9_amd64.deb:
 	docker rm debian9_build || true
 	docker create --name debian9_build renecannao/proxysql:build-debian8 bash -c "while : ; do sleep 10 ; done"
 	docker start debian9_build
-	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/sysown/proxysql.git proxysql"
+	docker exec debian9_build bash -c "cd /opt; git clone -b v${CURVER} https://github.com/ddelnano/proxysql.git proxysql"
 	sleep 2
 	docker exec debian9_build bash -c "cd /opt/proxysql; ${MAKE} clean && ${MAKE} ${MAKEOPT} build_deps && ${MAKE} ${MAKEOPT} debug"
 	sleep 2
