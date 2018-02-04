@@ -1509,11 +1509,7 @@ bool MySQL_Connection::IsAutoCommit() {
 bool MySQL_Connection::MultiplexDisabled() {
 // status_flags stores information about the status of the connection
 // can be used to determine if multiplexing can be enabled or not
-	bool ret=false;
-	if (status_flags & (STATUS_MYSQL_CONNECTION_TRANSACTION|STATUS_MYSQL_CONNECTION_USER_VARIABLE|STATUS_MYSQL_CONNECTION_PREPARED_STATEMENT|STATUS_MYSQL_CONNECTION_LOCK_TABLES|STATUS_MYSQL_CONNECTION_TEMPORARY_TABLE|STATUS_MYSQL_CONNECTION_GET_LOCK|STATUS_MYSQL_CONNECTION_NO_MULTIPLEX|STATUS_MYSQL_CONNECTION_SQL_LOG_BIN0|STATUS_MYSQL_CONNECTION_FOUND_ROWS) ) {
-		ret=true;
-	}
-	return ret;
+	return false;
 }
 
 
@@ -1524,7 +1520,7 @@ void MySQL_Connection::ProcessQueryAndSetStatusFlags(char *query_digest_text) {
 	if (myds) {
 		if (myds->sess) {
 			if (myds->sess->qpo) {
-				mul=myds->sess->qpo->multiplex;
+				/* mul=myds->sess->qpo->multiplex; */
 				if (mul==0) {
 					set_status_no_multiplex(true);
 				} else {
